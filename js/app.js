@@ -72,10 +72,28 @@ mainHeading.style.cssText = 'color: blue; background-color: orange; font-size: 3
 
 // Add class 'active' to section when near top of viewport
 
+//Tip: detect the element location relatice to the viewport using .getBoundingClientRect()
+function makeActive(){
+    for (cons section of sections) {
+        const box = section.getBoundingClientRect();
+        //Find a value that works best, but 150 seems to be a good start.
+        if (box.top <= VALUE && box.bottom >= VALUE) {
+        //apply active state on current section and corresponding Nav link
+        } else {
+        //Remove active state from other section and corresponding Nav link
+        }
+     }
+}
+
+call makeActive() function whenever the user scrolls the page***
+
+
 
 // Scroll to anchor ID using scrollTO event
-
-
+scroll()
+scrollBy()
+scrollIntoView()
+are acceptable
 /**
  * End Main Functions
  * Begin Events
@@ -88,10 +106,18 @@ document.addEventListener('click', function() {
     // change its background color to red
   	mainHeading.style.backgroundColor = 'red';
 })
+
+use prevent default()
+
 // Build menu 
 
 // Scroll to section on link click
 
 // Set sections as active
+// Make sections active document.addEventListener("scroll", function() { makeActive();});***
+* Set CSS class active state when the element is in the viewport.
+* *Hint: see this* <a href="https://knowledge.udacity.com/questions/85408" target="_blank">*Knowledge post*</a> *to implement this functionality.*
 
+<br data-md>
 
+update readme
