@@ -68,6 +68,7 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
+    /*height: 50px;  expanded nav bar */
 }
 
 .navbar__menu li {

@@ -23,6 +23,19 @@
  * 
 */
 
+    
+const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
+for (let i=0; i < sections.length; i++) {
+    let section = sections[i];
+    let ul = document.createElement('ul');
+    ul.innerHTML = section;
+    document.getElementById('navList').appendChild(ul);
+}
+    //console.log(sections);
+
+
+
+
 
 /**
  * End Global Variables
@@ -39,7 +52,23 @@
 */
 
 // build the nav
+document.getElementsByClassName('.navbar__menu');
+const navMenu = $0;
+navMenu.style.height = '50px';
+document.getElementsById('#navbar__list');
+const navList = $0;
 
+
+
+
+
+
+
+
+
+const mainHeading = document.querySelector('h1');
+
+mainHeading.style.cssText = 'color: blue; background-color: orange; font-size: 3.5em';
 
 // Add class 'active' to section when near top of viewport
 
@@ -52,7 +81,13 @@
  * Begin Events
  * 
 */
-
+document.addEventListener('click', function() {
+    // select the element
+    const mainHeading = document.querySelector('h1');
+    
+    // change its background color to red
+  	mainHeading.style.backgroundColor = 'red';
+})
 // Build menu 
 
 // Scroll to section on link click
