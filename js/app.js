@@ -23,15 +23,22 @@
  * 
 */
 
+//--global variables??
+const navbar__menu = navMenu
+const navbar__list =  navList
+
+
+
+
     
 const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
 for (let i=0; i < sections.length; i++) {
     let section = sections[i];
     let ul = document.createElement('ul');
     ul.innerHTML = section;
-    document.getElementById('navList').appendChild(ul);
+    document.getElementById('navbar__list').appendChild(ul);
 }
-    //console.log(sections);
+   //-- console.log(sections);
 
 
 
@@ -55,11 +62,17 @@ for (let i=0; i < sections.length; i++) {
 document.getElementsByClassName('.navbar__menu');
 const navMenu = $0;
 navMenu.style.height = '50px';
-document.getElementsById('#navbar__list');
+document.getElementsById('navbar__list');
 const navList = $0;
 
-
-
+/*
+//make list items (do not add to HTML)
+<ul id="navbar__list">
+    <li><a class="menu__link" href="#section1">Section 1</a></li>
+    <li><a class="menu__link" href="#section2">Section 2</a></li>
+    <li><a class="menu__link" href="#section3">Section 3</a></li>
+    <li><a class="menu__link" href="#section4">Section 4</a></li>
+</ul>
 
 
 
@@ -99,12 +112,14 @@ are acceptable
  * Begin Events
  * 
 */
+//--test event listener code
+
 document.addEventListener('click', function() {
     // select the element
-    const mainHeading = document.querySelector('h1');
+    const sectionTabs = document.querySelector('navbar__list');
     
     // change its background color to red
-  	mainHeading.style.backgroundColor = 'red';
+  	sectionTabs.style.backgroundColor = 'red';
 })
 
 use prevent default()
