@@ -24,24 +24,35 @@
 */
 
 //--global variables??
-const navbar__menu = document.getElementsByClassName('.navbar__menu');
-const navbar__list = document.getElementById('#navbar__list');
+const menu = document.getElementsByClassName('.navbar__menu');
+const list = document.getElementById('#navbar__list');
 
 
 
 
  
 const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
-for (let i=0; i < sections.length; i++) {
+for (let i = 0; i < sections.length; i++) {
     let section = sections[i];
-    let li = document.createElement('li');
+    let li = document.createElement('li"');
     li.innerHTML = section;
     document.getElementById('navbar__list').appendChild(li);
+
+    console.log(sections);
 }
-    //console.log(sections);
 
 
-  
+
+
+//creates a new link element (used in refine video 12)
+// const navLink = document.createElement('a');
+    
+// //set the link text and URL
+// navLink.textContent = 'Section 1';
+// navLink.setAttribute('href', '#section1');
+
+// //add the new link to the body of the document
+// document.body.append(navLink);
 
 
 /**
