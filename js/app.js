@@ -24,8 +24,8 @@
 */
 
 //--global variables??
-const menu = document.getElementsByClassName('.navbar__menu');
-const list = document.getElementById('#navbar__list');
+const navBarMenu = document.querySelector('.navbar__menu');
+const navBarList = document.querySelector('#navbar__list');
 
 
 
@@ -34,25 +34,41 @@ const list = document.getElementById('#navbar__list');
 const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
 for (let i = 0; i < sections.length; i++) {
     let section = sections[i];
-    let li = document.createElement('li"');
-    li.innerHTML = section;
-    document.getElementById('navbar__list').appendChild(li);
+    const navListItem = document.createElement("li");
+    navListItem.innerHTML = section;
+    document.getElementById('navbar__list').appendChild(navListItem);
 
-    console.log(sections);
+    //console.log(sections);
+    
 }
+//addToNav(sections);
 
 
+
+// function addToNav() {
+//     for (section of sectionAll) {
+//    const newListItem = document.createElement('li');
+//    newListItem.innerHTML = `<a href="#${section.id}" class = "menu__link"> ${section.dataset.nav}</a>`;
+//     }
+// };
+
+
+
+
+
+//button
+//<a href="#"></a>
 
 
 //creates a new link element (used in refine video 12)
-// const navLink = document.createElement('a');
+const navLink = document.createElement('a');
     
-// //set the link text and URL
-// navLink.textContent = 'Section 1';
-// navLink.setAttribute('href', '#section1');
+//set the link text and URL
+navLink.textContent = 'Section 1';
+navLink.setAttribute('href', '#section1');
 
-// //add the new link to the body of the document
-// document.body.append(navLink);
+//add the new link to the body of the document
+document.body.append(navLink);
 
 
 /**
