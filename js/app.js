@@ -27,24 +27,8 @@
 const navBarMenu = document.querySelector('navbar__menu');
 const navBarList = document.querySelector('navbar__list');
 const section = document.querySelectorAll('section');
+const anchor = document.querySelector('a');
 
-//const navListItem = document.querySelector('li');
-
-
-
-
- // works 
-// const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
-// for (let i = 0; i < sections.length; i++) {
-//      let section = sections[i];
-//     const navListItem = document.createElement("li");
-//     navListItem.innerHTML = section;
-//     document.getElementById('navbar__list').appendChild(navListItem);
-
-//     //console.log(sections);
-    
-// };
-// // // addToNav(sections);
 
 
 
@@ -54,24 +38,16 @@ const section = document.querySelectorAll('section');
  for (let i = 0; i < sections.length; i++) {
       let section = sections[i];
      const navListItem = document.createElement("li");
-     navListItem.innerHTML = `<a href="#${section.id}" class = "menu__link"> ${section}</a>`;
+     navListItem.innerHTML = `<a href="#${section}" class = "menu__link"> ${section}</a>`;
      document.getElementById('navbar__list').appendChild(navListItem);
  
      //console.log(sections);
      
  };
- // addToNav(sections);
+ 
 
 
 
-//full write out
-// function addToNav() {
-//     for (section of sectionAll) {
-//    const navBarList = document.createElement('li');
-//    navBarList.innerHTML = `<a href="#${section.id}" class = "menu__link"> ${section.dataset.nav}</a>`;
-//     }
-// };
-//addToNav(sections);
 
 
 
@@ -80,7 +56,7 @@ const section = document.querySelectorAll('section');
 //<a href="#"></a>
 
 
-// //creates a new link element (used in refine video 12)
+//creates a new link element (used in refine video 12)
 // const navLink = document.createElement('a');
     
 // //set the link text and URL
@@ -107,97 +83,21 @@ const section = document.querySelectorAll('section');
 
 
 
-// build out the nav bar //worked
-// const navMenu = document.getElementsByClassName('.navbar__menu');
-// navMenu.style.height = '50px';
-
-// //--makes nav list section 1 //worked in console
-// const navList = document.getElementById('#navbar__list');
-// const navList = document.createElement('li');
-// navList.innerHTML = '<strong> Section 1 <strong>';
-// navList.textContent = 'Section 1';
-
-// list.append(listItem)
-
-
-//make list items (do not add to HTML)
-{/* <ul id="navbar__list">
-    <li><a class="menu__link" href="#section1">Section 1</a></li>
-    <li><a class="menu__link" href="#section2">Section 2</a></li>
-    <li><a class="menu__link" href="#section3">Section 3</a></li>
-    <li><a class="menu__link" href="#section4">Section 4</a></li>
-</ul>
-
-//--test navigation buttons
-const navListItems = [
-    {href: "data-nav=Section1", text: 'Section 1'}
-    {href: "data-nav=Section2", text: 'Section 2'}
-    {href: "data-nav=Section3", text: 'Section 3'}
-    {href: "data-nav=Section4", text: 'Section 4'}
-]; */}
-
-// build out the nav bar //worked
-//document.getElementsByClassName('.navbar__menu');
-//const navMenu = $0;
-//--navMenu.style.height = '50px';
-
-//--makes nav list section 1 //worked in console
-// document.getElementById('navbar__list');
-// const navList = $0;
-// const navList = document.createElement('li');
-// navList.innerHTML = '<strong> Section 1 <strong>';
-// navList.textContent = 'Section 1';
-
-// list.append(listItem)
-
-// const navListItems = [
-//     {href=: "#"data-nav=Section1", text: 'Section 1'},
-//     {href: "data-nav=Section2", text: 'Section 2'},
-//     {href: "data-nav=Section3", text: 'Section 3'},
-//     {href: "data-nav=Section4", text: 'Section 4'}
-// ];
-
-//     <li><a href="#">Section 1</a></li>
-//     <li><a href="#">Section 2</a></li>
-//     <li><a href="#">Section 31</a></li>
-//     <li><a href="#">Section 4</a></li>
-
-
-
-
-
-
-
-
-//--applied changes to console worked
-// const navList = document.getElementById('#navbar__list');
-// navList.style.color = 'black';
-// navList.style.height = '50px';
-// navList.style.fontSize = '2em';
-// navList.style.padding = '10px';
-
-
-
-//--did not work
-// const navList = document.querySelector('navbar__list');
-// navList.style.cssText = 'color: black; height: 50px; font-size: 2em; padding: 10px';
-
-
 
 
 // Add class 'active' to section when near top of viewport
 //--Tip: detect the element location relatice to the viewport using .getBoundingClientRect()
-// function makeActive(){
-//     for (cons section of sections) {
-//         const box = section.getBoundingClientRect();
-//         //Find a value that works best, but 150 seems to be a good start.
-//         if (box.top <= VALUE && box.bottom >= VALUE) {
-//         //apply active state on current section and corresponding Nav link
-//         } else {
-//         //Remove active state from other section and corresponding Nav link
-//         }
-//      }
-// }
+function makeActive(){
+    for (let section of sections) {
+        const box = section.getBoundingClientRect();
+        //Find a value that works best, but 150 seems to be a good start.
+        if (box.top <= 150 && box.bottom >= 150) {
+        //apply active state on current section and corresponding Nav link
+        } else {
+        //Remove active state from other section and corresponding Nav link
+        }
+     }
+};
 
 // call makeActive() function whenever the user scrolls the page***
 
@@ -209,44 +109,31 @@ const navListItems = [
 // scrollIntoView()
 // are acceptable
 
-//scroll to top
-// $(window).scroll(function () {
-//     if ($(this).scrollDown() > 100) {
-//         $('.containerScroll'). fadeIn('slow');
-//     } else {
-//         $('.containerScroll'). fadeOut('slow');
-//     }
-// });
 
-// $('.containerScroll').click(function () {
-//     $('html, body').animate({
-//         scrollTop: 0
-//     }, 1500, 'easeInOutExpo');
-//     return false;
-// });
 
-//scroll to element 
+//scroll to element test
 //const element = document.getElementById("someElement");
 
-//jquery instant/smooth  start/nearest
-//element.scrollIntoView({behavior:"instant", block: "end", inline: "start"});
+//jquery instant/smooth  start/nearest test
+//element.scrollIntoView({behavior:"smooth", block: "end", inline: "start"});
 
-//scroll to element
+//scroll to element test
 //$('html, body').scrollTop($('#about').offset().top);
 
-//scroll to element
+//scroll to element test
 // $(document).ready(() => {
-//     $('#example').click(() => {
+//     $('#section').click(() => {
 //       $('html, body').animate({
-//         'scrollTop': $('#about').offset().top
+//         'scrollTop': $('#section').offset().top
 //     }, 1500);
 //   });
 // });
 
+
+
+//active section test code
 // const activeSection = document.querySelectorAll("active-section");
-
 // activeSection.scrollIntoView({behavior: "instant", block: "end"});
-
 // activeSection.addEventListener("click", () => {
 // });
 
@@ -258,41 +145,25 @@ const navListItems = [
 */
 
 
-//--test event listener code
-// document.addEventListener('click', function() {
-//     // select the element
-//     const sectionTabs = document.querySelector('navbar__list');
+
+//--test listener turns menu buttons color
+document.addEventListener('click', function() {
+    //-- select the element
+    document.querySelector('navList');
     
-//     // change its background color to red
-//   	sectionTabs.style.backgroundColor = 'red';
-// })
-
-// //--use prevent default()
-// //test
-// submit.addEventListener(“click”, function(event){
-// let value = textArea.value;
-// let li = document.createElement(“li”);
-// li.textContent = value;
-// ul.appendChild(li);
-// event.preventDefault();
-// });
+    //-- change its background color
+    const navList = document.querySelector('li');
+    navList.style.backgroundColor = 'orange';
+})
 
 
-//--test listener
-// document.addEventListener('click', function () {
-//     //-- select the element
-//     //const navList = document.querySelector('navList');
-    
-//     //-- change its background color to red
-//   //	navList.style.backgroundColor = 'red';
-//     const navList = document.querySelector('li');
-
-//     navList.style.backgroundColor = 'red';
-// })
-
+//--use prevent default()
 //document.preventDefault()
 
-
+anchor.addEventListener('click', function(event) {
+    event.preventDefault();
+       console.log('button clicked');
+});
 
 
 // Build menu 
