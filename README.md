@@ -1,9 +1,27 @@
-# Landing Page Project
+# Landing Page Project 
+The readme for Udacity's landing page project
 
-## Instructions
+## Project Description
+This project is a static landing page with 3 sections.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+The languages used in the project include:
+- HTML
+- CSS
+- Javascript
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Added Functionality
+Some changes that were made to the starter code include:
+- adding a 4th section to the page
+- adding a navigation bar with clickable menu
+- creating a scroll feature that jumps to selected section
+- highlighting active section when its in view 
+- making sure the page is responsive
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## End Result 
+I learned how to change a static landing page into an interactive by using javascript.
+
+
+
+
+
+
