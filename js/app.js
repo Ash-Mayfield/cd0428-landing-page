@@ -24,34 +24,54 @@
 */
 
 //--global variables??
-const navBarMenu = document.querySelector('.navbar__menu');
-const navBarList = document.querySelector('#navbar__list');
+const navBarMenu = document.querySelector('navbar__menu');
+const navBarList = document.querySelector('navbar__list');
+const section = document.querySelectorAll('section');
+
+//const navListItem = document.querySelector('li');
 
 
 
 
- 
-const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
-for (let i = 0; i < sections.length; i++) {
-    let section = sections[i];
-    const navListItem = document.createElement("li");
-    navListItem.innerHTML = section;
-    document.getElementById('navbar__list').appendChild(navListItem);
+ // works 
+// const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
+// for (let i = 0; i < sections.length; i++) {
+//      let section = sections[i];
+//     const navListItem = document.createElement("li");
+//     navListItem.innerHTML = section;
+//     document.getElementById('navbar__list').appendChild(navListItem);
 
-    //console.log(sections);
+//     //console.log(sections);
     
-}
-//addToNav(sections);
+// };
+// // // addToNav(sections);
 
 
 
+
+ // good code works to build nav menu-needs to be linked
+ const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
+ for (let i = 0; i < sections.length; i++) {
+      let section = sections[i];
+     const navListItem = document.createElement("li");
+     navListItem.innerHTML = `<a href="#${section.id}" class = "menu__link"> ${section}</a>`;
+     document.getElementById('navbar__list').appendChild(navListItem);
+ 
+     //console.log(sections);
+     
+ };
+ // addToNav(sections);
+
+
+
+//full write out
 // function addToNav() {
 //     for (section of sectionAll) {
-//    const newListItem = document.createElement('li');
-//    newListItem.innerHTML = `<a href="#${section.id}" class = "menu__link"> ${section.dataset.nav}</a>`;
+//    const navBarList = document.createElement('li');
+//    navBarList.innerHTML = `<a href="#${section.id}" class = "menu__link"> ${section.dataset.nav}</a>`;
 //     }
 // };
-
+//addToNav(sections);
 
 
 
@@ -60,15 +80,15 @@ for (let i = 0; i < sections.length; i++) {
 //<a href="#"></a>
 
 
-//creates a new link element (used in refine video 12)
-const navLink = document.createElement('a');
+// //creates a new link element (used in refine video 12)
+// const navLink = document.createElement('a');
     
-//set the link text and URL
-navLink.textContent = 'Section 1';
-navLink.setAttribute('href', '#section1');
+// //set the link text and URL
+// navLink.textContent = 'Section';
+// navLink.setAttribute('href', '#section');
 
-//add the new link to the body of the document
-document.body.append(navLink);
+// //add the new link to the body of the document
+// document.body.append(navLink);
 
 
 /**
@@ -189,6 +209,47 @@ const navListItems = [
 // scrollIntoView()
 // are acceptable
 
+//scroll to top
+// $(window).scroll(function () {
+//     if ($(this).scrollDown() > 100) {
+//         $('.containerScroll'). fadeIn('slow');
+//     } else {
+//         $('.containerScroll'). fadeOut('slow');
+//     }
+// });
+
+// $('.containerScroll').click(function () {
+//     $('html, body').animate({
+//         scrollTop: 0
+//     }, 1500, 'easeInOutExpo');
+//     return false;
+// });
+
+//scroll to element 
+//const element = document.getElementById("someElement");
+
+//jquery instant/smooth  start/nearest
+//element.scrollIntoView({behavior:"instant", block: "end", inline: "start"});
+
+//scroll to element
+//$('html, body').scrollTop($('#about').offset().top);
+
+//scroll to element
+// $(document).ready(() => {
+//     $('#example').click(() => {
+//       $('html, body').animate({
+//         'scrollTop': $('#about').offset().top
+//     }, 1500);
+//   });
+// });
+
+// const activeSection = document.querySelectorAll("active-section");
+
+// activeSection.scrollIntoView({behavior: "instant", block: "end"});
+
+// activeSection.addEventListener("click", () => {
+// });
+
 
 /*
  * End Main Functions
@@ -239,7 +300,10 @@ const navListItems = [
 // Scroll to section on link click
 
 // Set sections as active
-// Make sections active document.addEventListener("scroll", function() { makeActive();});***
+// Make sections active 
+// document.addEventListener("scroll", function() { 
+//     makeActive();
+// });
 
 //--*Set CSS class active state when the element is in the viewport.
 //--*Hint: see this* <a href="https://knowledge.udacity.com/questions/85408" target="_blank">*Knowledge post*</a> *to implement this functionality.*
