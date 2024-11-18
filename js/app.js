@@ -117,7 +117,7 @@ addToNav();
 // call makeActive() function whenever the user scrolls the page***
 
 //get value 
-const offset = (section) =>{
+const offset = (section) => {
     return Math.floor(section.getBoundingClientRect().top);
 };
 
@@ -129,12 +129,12 @@ const removeActive = (section) => {
 //add active section
 const addActive = (conditional, section) => {
     if(conditional) {
-        section.classList.remove('active-section');
+        section.classList.add('active-section');
     };
 };
 
 //function
-const sectionActivation = () => {
+const makeActive = () => {
     sections.forEach(section => {
         const elementOffset = offset(section);
 
@@ -147,7 +147,7 @@ const sectionActivation = () => {
      
 };
 
-window.addEventListener('scroll',sectionActivation);
+window.addEventListener('scroll',makeActive);
   
 
 
