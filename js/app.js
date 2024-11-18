@@ -23,39 +23,51 @@
  * 
 */
 
-//--global variables??
+//global variables
+//navbar 
 const navBarMenu = document.querySelector('navbar__menu');
-const navBarList = document.querySelector('navbar__list');
-const section = document.querySelectorAll('section');
+const navBarList = document.getElementById('navbar__list');
+//sections
+const sections = document.querySelectorAll('section');
 const anchor = document.querySelector('a');
 
 
 
-
-
- // good code works to build nav menu-needs to be linked
- const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
- for (let i = 0; i < sections.length; i++) {
-      let section = sections[i];
-     const navListItem = document.createElement("li");
-     navListItem.innerHTML = `<a href="#${section}" class = "menu__link"> ${section}</a>`;
-     document.getElementById('navbar__list').appendChild(navListItem);
+// good code works to build nav menu-needs to be linked displays in console 4 times though
+//  const sections = ["Section 1", "Section 2", "Section 3", "Section 4"]
+//  for (let i = 0; i < sections.length; i++) {
+//       let section = sections[i];
+//      const navListItem = document.createElement("li");
+//      navListItem.innerHTML = `<a href="#${section}" class = "menu__link"> ${section}</a>`;
+//      document.getElementById('navbar__list').appendChild(navListItem);
  
-     //console.log(sections);
+//      //console.log(sections);
      
- };
- 
+//  };
 
 
-
+//Max suggested loop rather than array 
+//code works and links finally work
+const addToNav = () => {
+    let navListItem = '';
+    //for each loop of sections with link
+    sections.forEach(section => {
+        const sectionID = section.id;
+        const sectionDataNav = section.dataset.nav;
+        navListItem += `<li><a href="#${section.id}" class = "menu__link"> ${sectionDataNav}</a></li>`  
+    });
+    //append elements to nav
+    navBarList.innerHTML = navListItem;
+    //console.log(sections);
+};
+      
+addToNav();
 
 
 
 
 //button
 //<a href="#"></a>
-
-
 //creates a new link element (used in refine video 12)
 // const navLink = document.createElement('a');
     
@@ -74,7 +86,6 @@ const anchor = document.querySelector('a');
 */
 
 
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -87,7 +98,7 @@ const anchor = document.querySelector('a');
 
 // Add class 'active' to section when near top of viewport
 //--Tip: detect the element location relatice to the viewport using .getBoundingClientRect()
-function makeActive(){
+function makeActive() {
     for (let section of sections) {
         const box = section.getBoundingClientRect();
         //Find a value that works best, but 150 seems to be a good start.
@@ -117,8 +128,7 @@ function makeActive(){
 //jquery instant/smooth  start/nearest test
 //element.scrollIntoView({behavior:"smooth", block: "end", inline: "start"});
 
-//scroll to element test
-//$('html, body').scrollTop($('#about').offset().top);
+
 
 //scroll to element test
 // $(document).ready(() => {
@@ -133,7 +143,7 @@ function makeActive(){
 
 //active section test code
 // const activeSection = document.querySelectorAll("active-section");
-// activeSection.scrollIntoView({behavior: "instant", block: "end"});
+// activeSection.scrollIntoView({behavior: "smooth", block: "start"});
 // activeSection.addEventListener("click", () => {
 // });
 
@@ -146,13 +156,13 @@ function makeActive(){
 
 
 
-//--test listener turns menu buttons color
+// //--test listener turns menu buttons color
 document.addEventListener('click', function() {
     //-- select the element
     document.querySelector('navList');
     
     //-- change its background color
-    const navList = document.querySelector('li');
+    const navList = document.querySelectorAll('li');
     navList.style.backgroundColor = 'orange';
 })
 
@@ -163,11 +173,11 @@ document.addEventListener('click', function() {
 
 
 
-// anchor.addEventListener('click', function(event) {
-//     event.preventDefault();
+anchor.addEventListener('click', function(event) {
+    event.preventDefault();
 
-//        console.log('button clicked');
-// });
+       console.log('button clicked');
+});
 
 
 // Build menu 
