@@ -54,6 +54,7 @@ const addToNav = () => {
     sections.forEach(section => {
         const sectionID = section.id;
         const sectionDataNav = section.dataset.nav;
+
         navListItem += `<li><a href="#${section.id}" class = "menu__link"> ${sectionDataNav}</a></li>`  
     });
     //append elements to nav
@@ -97,20 +98,57 @@ addToNav();
 
 
 // Add class 'active' to section when near top of viewport
-//--Tip: detect the element location relatice to the viewport using .getBoundingClientRect()
-function makeActive() {
-    for (let section of sections) {
-        const box = section.getBoundingClientRect();
-        //Find a value that works best, but 150 seems to be a good start.
-        if (box.top <= VALUE && box.bottom >= VALUE) {
-        //apply active state on current section and corresponding Nav link
-        } else {
-        //Remove active state from other section and corresponding Nav link
-        }
-     }
+//--Tip: detect the element location relative to the viewport using .getBoundingClientRect()
+// function makeActive() {
+//     for (let section of sections) {
+//         const box = section.getBoundingClientRect();
+//         //Find a value that works best, but 150 seems to be a good start.
+//         if (box.top <= VALUE && box.bottom >= VALUE) {
+//         //apply active state on current section and corresponding Nav link
+//         } else {
+//         //Remove active state from other section and corresponding Nav link
+//         }
+//      }
+     
+// };
+
+
+//makeActive();
+// call makeActive() function whenever the user scrolls the page***
+
+//get value 
+const offset = (section) =>{
+    return Math.floor(section.getBoundingClientRect().top);
 };
 
-// call makeActive() function whenever the user scrolls the page***
+//remove active section
+const removeActive = (section) => {
+     section.classList.remove('active-section');
+};
+
+//add active section
+const addActive = (conditional, section) => {
+    if(conditional) {
+        section.classList.remove('active-section');
+    };
+};
+
+//function
+const sectionActivation = () => {
+    sections.forEach(section => {
+        const elementOffset = offset(section);
+
+        inviewport = () => elementOffset < 150 && elementOffset >= -150;
+
+        removeActive(section);
+        addActive(inviewport(),section);
+        
+     });
+     
+};
+
+window.addEventListener('scroll',sectionActivation);
+  
 
 
 
@@ -157,14 +195,14 @@ function makeActive() {
 
 
 // //--test listener turns menu buttons color
-document.addEventListener('click', function() {
-    //-- select the element
-    document.querySelector('navList');
+// document.addEventListener('click', function() {
+//     //-- select the element
+//     document.querySelector('navList');
     
-    //-- change its background color
-    const navList = document.querySelectorAll('li');
-    navList.style.backgroundColor = 'orange';
-})
+//     //-- change its background color
+//     const navList = document.querySelectorAll('li');
+//     navList.style.backgroundColor = 'orange';
+// })
 
 
 //--use prevent default()
@@ -173,11 +211,12 @@ document.addEventListener('click', function() {
 
 
 
-anchor.addEventListener('click', function(event) {
-    event.preventDefault();
+// window.addEventListener('scroll', function(event) {
+//     event.preventDefault();
 
-       console.log('button clicked');
-});
+//        console.log('button clicked');
+// });
+
 
 
 // Build menu 
