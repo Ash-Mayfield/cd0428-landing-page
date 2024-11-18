@@ -68,7 +68,7 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
-    height: 50px;  /*expanded nav bar */
+    height: 50px; 
 }
 
 .navbar__menu li {
@@ -158,6 +158,7 @@ section:nth-of-type(even) .landing__container::before {
     border-radius: 50%;
     opacity: 0;
     transition: ease 0.5s all;
+
 }
 
 section:nth-of-type(3n) .landing__container::after {
