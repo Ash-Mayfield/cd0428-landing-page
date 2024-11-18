@@ -91,7 +91,7 @@ function makeActive(){
     for (let section of sections) {
         const box = section.getBoundingClientRect();
         //Find a value that works best, but 150 seems to be a good start.
-        if (box.top <= 150 && box.bottom >= 150) {
+        if (box.top <= VALUE && box.bottom >= VALUE) {
         //apply active state on current section and corresponding Nav link
         } else {
         //Remove active state from other section and corresponding Nav link
@@ -160,10 +160,14 @@ document.addEventListener('click', function() {
 //--use prevent default()
 //document.preventDefault()
 
-anchor.addEventListener('click', function(event) {
-    event.preventDefault();
-       console.log('button clicked');
-});
+
+
+
+// anchor.addEventListener('click', function(event) {
+//     event.preventDefault();
+
+//        console.log('button clicked');
+// });
 
 
 // Build menu 
