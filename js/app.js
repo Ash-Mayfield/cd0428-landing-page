@@ -25,11 +25,11 @@
 
 //global variables
 //navbar 
-const navBarMenu = document.querySelector('navbar__menu');
-const navBarList = document.getElementById('navbar__list');
+const navBarMenu = document.querySelector('.navbar__menu');
+const navBarList = document.querySelector('#navbar__list');
 //sections
 const sections = document.querySelectorAll('section');
-const anchor = document.querySelector('a');
+const anchor = document.querySelectorAll('.navbar__menu a');
 
 
 
@@ -48,7 +48,7 @@ const anchor = document.querySelector('a');
 
 //Max suggested loop rather than array 
 //code works and links finally work
-const addToNav = () => {
+function addToNav() {
     let navListItem = '';
     //for each loop of sections with link
     sections.forEach(section => {
@@ -94,9 +94,6 @@ addToNav();
 */
 
 
-
-
-
 // Add class 'active' to section when near top of viewport
 //--Tip: detect the element location relative to the viewport using .getBoundingClientRect()
 // function makeActive() {
@@ -116,42 +113,25 @@ addToNav();
 //makeActive();
 // call makeActive() function whenever the user scrolls the page***
 
-//get value 
-const offset = (section) => {
+//get box value 
+function position(section) {
     return Math.floor(section.getBoundingClientRect().top);
 };
-
 //remove active section
-const removeActive = (section) => {
-     section.classList.remove('active-section');
+function removeActive(section) {
+     section.classList.remove('active-section');    
 };
-
 //add active section
-const addActive = (conditional, section) => {
+function addActive(conditional, section) {
     if(conditional) {
         section.classList.add('active-section');
     };
 };
 
-//function
-const makeActive = () => {
-    sections.forEach(section => {
-        const elementOffset = offset(section);
-
-        inviewport = () => elementOffset < 150 && elementOffset >= -150;
-
-        removeActive(section);
-        addActive(inviewport(),section);
-        
-     });
-     
-};
-
-window.addEventListener('scroll',makeActive);
-  
+window.addEventListener('scroll', makeActive);
 
 
-
+//scrolls without this not sure where to add this 
 // Scroll to anchor ID using scrollTO event
 // scroll()
 // scrollBy()
@@ -159,31 +139,11 @@ window.addEventListener('scroll',makeActive);
 // are acceptable
 
 
-
 //scroll to element test
 //const element = document.getElementById("someElement");
 
 //jquery instant/smooth  start/nearest test
 //element.scrollIntoView({behavior:"smooth", block: "end", inline: "start"});
-
-
-
-//scroll to element test
-// $(document).ready(() => {
-//     $('#section').click(() => {
-//       $('html, body').animate({
-//         'scrollTop': $('#section').offset().top
-//     }, 1500);
-//   });
-// });
-
-
-
-//active section test code
-// const activeSection = document.querySelectorAll("active-section");
-// activeSection.scrollIntoView({behavior: "smooth", block: "start"});
-// activeSection.addEventListener("click", () => {
-// });
 
 
 /*
@@ -194,44 +154,53 @@ window.addEventListener('scroll',makeActive);
 
 
 
-// //--test listener turns menu buttons color
-// document.addEventListener('click', function() {
-//     //-- select the element
-//     document.querySelector('navList');
-    
-//     //-- change its background color
-//     const navList = document.querySelectorAll('li');
-//     navList.style.backgroundColor = 'orange';
-// })
-
-
+//not sure where to use this
 //--use prevent default()
 //document.preventDefault()
 
 
 
-
-// window.addEventListener('scroll', function(event) {
-//     event.preventDefault();
-
-//        console.log('button clicked');
-// });
-
-
-
-// Build menu 
-
 // Scroll to section on link click
-
 // Set sections as active
-// Make sections active 
-// document.addEventListener("scroll", function() { 
-//     makeActive();
+
+//function to call
+function makeActive() {
+    //go through sections
+    sections.forEach(section => {
+        const elementOffset = position(section);
+        //if in view
+        inview = () => elementOffset < 150 && elementOffset >= -150;
+        //add and remove active 
+        removeActive(section);
+        addActive(inview(),section);
+     });
+};
+makeActive()
+
+
+
+
+// navListItem.addEventListener("click", (toSec) => { 
+//     toSec.preventDefault();
+//     if(toSec.target.dataset.nav) {
+//         document
+//         .getElementById('${toSec.target.dataset.nav}')
+//         .scrollIntoView({ behavior: "smooth"});
+//         setTimeout(() => {
+//             location.hash = '${toSec.target.dataset.nav}';
+//         }, 170);
+//     }
 // });
+
+
+
+//     ({behavior:"smooth", block: "end", inline: "start"});
+//     makeActive();
+//     document.preventDefault();
+
 
 //--*Set CSS class active state when the element is in the viewport.
 //--*Hint: see this* <a href="https://knowledge.udacity.com/questions/85408" target="_blank">*Knowledge post*</a> *to implement this functionality.*
 
-//--<br data-md>
 
-//--update readme
+
