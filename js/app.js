@@ -152,14 +152,6 @@ window.addEventListener('scroll', makeActive);
  * 
 */
 
-
-
-//not sure where to use this
-//--use prevent default()
-//document.preventDefault()
-
-
-
 // Scroll to section on link click
 // Set sections as active
 
@@ -178,22 +170,9 @@ function makeActive() {
 makeActive()
 
 
-
-
-// navListItem.addEventListener("click", (toSec) => { 
-//     toSec.preventDefault();
-//     if(toSec.target.dataset.nav) {
-//         document
-//         .getElementById('${toSec.target.dataset.nav}')
-//         .scrollIntoView({ behavior: "smooth"});
-//         setTimeout(() => {
-//             location.hash = '${toSec.target.dataset.nav}';
-//         }, 170);
-//     }
-// });
-
-
-
+//not sure where to use this
+//--use prevent default()
+//document.preventDefault()
 //     ({behavior:"smooth", block: "end", inline: "start"});
 //     makeActive();
 //     document.preventDefault();
